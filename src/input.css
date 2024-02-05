@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+npx tailwindcss -i src/input.css -o dist/output.css --watch
+*/
+
+@layer base {
+  @font-face {
+    font-family: 'the-bomb-sound';
+    font-style: normal;
+    src: url('../fonts/the-bomb-sound.regular.otf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'galiver';
+    font-style: normal;
+    src: url('../fonts/galiver-sans.bold.ttf') format('truetype');
+  }
+}
+
+.bgimagemenu{
+  background: #161616;
+  background-image: linear-gradient(90deg, #a9a9a9 2%, transparent 0),
+    linear-gradient(#a9a9a9 2%, transparent 0);
+  background-size: 140px 140px;
+  animation: anim 5s linear infinite;
+}
+
+@keyframes anim {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 140px 140px;
+  }
+}
+
+body{
+  scroll-behavior: smooth;
+}
