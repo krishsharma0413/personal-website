@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+npx tailwindcss -i src/input.css -o dist/output.css --watch
+*/
+
+
+@font-face {
+    font-family: 'Betaron Regular';
+    src: url('../fonts/Betatron-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Neue Bold';
+    src: url('../fonts/NeueHaasDisplay-Bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Neue Roman';
+    src: url('../fonts/NeueHaasDisplay-Roman.woff2') format('woff2');
+}
+
+.hollow {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px;
+}
+
+.shh {
+    background: -webkit-linear-gradient(0deg, rgba(237, 128, 71, 1) 0%, rgba(225, 103, 98, 1) 28%, rgba(184, 100, 149, 1) 69%, rgba(63, 117, 233, 1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.name {
+    /* add spacing between letters */
+    letter-spacing: 3px;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0)
+    }
+
+    100% {
+        transform: translateX(-100%)
+    }
+}
+
+.random-section {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.ribbo {
+    display: inline-block;
+    margin-top: 5px;
+    animation: marquee 50s linear infinite;
+}
+
+
+.logoname {
+    display: inline-block;
+    @apply text-text text-start font-betaron;
+    font-size: calc(min(7rem, 15vh));
+    line-height: calc(min(6rem, 12.85714vh));
+}
+
+@media (min-width: 768px) {
+    .logoname {
+        font-size: calc(min(22.22222vw, 44.44vh));
+        line-height: calc(min(16.66666vw, 33.2vh));
+    }
+}
+
+.box {
+    /* position: absolute;
+    box-sizing: inherit; */
+    @apply sm:rotate-0 sm:translate-x-0 sm:translate-y-0 -rotate-90 translate-y-[110%] translate-x-[-25%];
+}
+
+.skill-img {
+    @apply aspect-square w-fit p-2 border-2 rounded-lg;
+}
+
+.flexbox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    flex-direction: row;
+    padding: 0 0 0 1.5rem;
+}
+
+@keyframes slide {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+
+    to {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0)
+    }
+}
+
+.peak {
+    @apply w-[64px];
+}
+
+@-webkit-keyframes slide {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+
+    to {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0)
+    }
+}
+
+/* change color of background on hover for ribbonright class */
+.ribbonright:hover {
+    background-color: white !important;
+    background-image: none !important;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+
+.ribbonright {
+    color: #000;
+    font-family: Betaron Regular;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 400;
+    height: 0;
+    line-height: 1.2rem;
+    opacity: 100;
+    overflow: hidden;
+    position: absolute;
+    right: 2rem;
+    box-sizing: inherit;
+    top: -2.2em;
+    height: calc(100vh - 4rem);
+    transition-duration: 1.5s;
+    transition-property: height, opacity;
+    transition-timing-function: cubic-bezier(.45, 0, .55, 1);
+    background: linear-gradient(180deg, rgba(237, 128, 71, 1) 0%, rgba(225, 103, 98, 1) 28%, rgba(184, 100, 149, 1) 69%, rgba(63, 117, 233, 1) 100%);
+    width: 5rem;
+    z-index: 10;
+}
+
+#hero-section {
+    height: calc(100vh - 10rem);
+}
+
+.wcalc {
+    width: calc(100% - 8rem);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinnyboi:hover {
+    animation-play-state: running;
+}
+
+.spinnyboi {
+    animation: spin 5s linear infinite forwards;
+    animation-play-state: paused;
+}
+
+
+.inner {
+    left: 50%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100vh;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-transform-origin: 0 50%;
+
+    transform-origin: 0 50%;
+}
+
+.i1 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    width: 100vh;
+    justify-content: flex-start;
+    animation-duration: 15s;
+    animation: slide 50s infinite;
+    animation-timing-function: linear;
+}
+
+.spanner {
+    display: inline-block;
+    /* font-size: 1.5rem; */
+    font-family: Betaron Regular;
+    padding: 0px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.project {
+    @apply text-text font-betaron py-2 text-[9vw] md:text-[6vw] px-3 md:px-10;
+    /* font-size: 9vw; */
+    background: linear-gradient(to top, white 50%, black 50%);
+    background-position: left top;
+    background-size: 100% 200%;
+    transition: all .7s ease;
+}
+
+
+.project:hover {
+    cursor: pointer;
+    background-position: right bottom;
+    color: #000;
+}
